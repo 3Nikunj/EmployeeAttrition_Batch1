@@ -43,8 +43,10 @@ def user_input_features():
 input_df = user_input_features()
 
 # Encode the 'OverTime' feature
-input_df['OverTime'] = label_encoder['OverTime'].transform(
-    input_df['OverTime'])
+# input_df['OverTime'] = label_encoder['OverTime'].transform(
+#     input_df['OverTime'])
+
+input_df['OverTime'] = input_df['OverTime'].map({'Yes': 1, 'No': 0})
 
 # Make predictions
 if st.button("Predict Attrition"):
